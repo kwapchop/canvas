@@ -6,12 +6,17 @@ export class Loop {
         this.lastUpdate = 0;
         this.maxInterval = 40;
 
+        this.payse = false;
+        this.stop = false;
+
+        this.start = false;
+
         this.animate = this.animate.bind(this);
         this.animate();
     }
 
     animate(currentTime = 0) {
-        requestAnimationFrame(this.animate)
+            this.start = requestAnimationFrame(this.animate)
 
         this.deltaTime = currentTime - this.lastUpdate
         if (this.deltaTime < this.maxInterval) {
@@ -20,5 +25,9 @@ export class Loop {
         }
 
         this.lastUpdate = currentTime;
+    }
+
+    stopGame() {
+        cancelAnimationFrame(this.start)
     }
 }
