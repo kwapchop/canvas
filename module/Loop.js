@@ -20,7 +20,7 @@ export class Loop {
 
         this.deltaTime = currentTime - this.lastUpdate
         if (this.deltaTime < this.maxInterval) {
-            this.update(this.deltaTime / 1000);
+            this.update(this.deltaTime / 1000,this);
             this.display();
         }
 
