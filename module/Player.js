@@ -1,8 +1,8 @@
 import {Rect} from "./Rect";
 
 export class Player extends Rect {
-    constructor() {
-        super({});
+    constructor({layer}) {
+        super({x:0,y:0,w:50,h:50,vx:500,vy:500,layer});
         this.joystick = {
             KeyW: false,
             KeyS: false,
@@ -35,31 +35,31 @@ export class Player extends Rect {
 
     move(correction) {
         if (this.joystick.KeyW) {
-            this.rect.y += -this.rect.vy * correction
+            this.y += -this.vy * correction
         }
         if (this.joystick.KeyS) {
-            this.rect.y += this.rect.vy * correction
+            this.y += this.vy * correction
         }
         if (this.joystick.KeyA) {
-            this.rect.x += -this.rect.vx * correction
+            this.x += -this.vx * correction
         }
         if (this.joystick.KeyD) {
-            this.rect.x += this.rect.vx * correction
+            this.x += this.vx * correction
         }
     }
 
     colliderField(layer){
-        if (this.rect.x < 0) {
-            this.rect.x = 0
+        if (this.x < 0) {
+            this.x = 0
         }
-        if (this.rect.x + this.rect.w > layer.w) {
-            this.rect.x = layer.w - this.rect.w;
+        if (this.x + this.w > layer.w) {
+            this.x = layer.w - this.w;
         }
-        if (this.rect.y < 0) {
-            this.rect.y = 0
+        if (this.y < 0) {
+            this.y = 0
         }
-        if (this.rect.y + this.rect.h > layer.h) {
-            this.rect.y = layer.h - this.rect.h;
+        if (this.y + this.h > layer.h) {
+            this.y = layer.h - this.h;
         }
     }
 }
