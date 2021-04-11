@@ -29,7 +29,7 @@ export class TotalTimeGame {
 
     displayTime() {
         if (!this.gameStop) {
-            console.log('Play', Math.floor((this.gameTime.duration / 1000).toFixed(3)))
+            // console.log('Play', Math.floor((this.gameTime.duration / 1000).toFixed(3)))
         }
     }
 
